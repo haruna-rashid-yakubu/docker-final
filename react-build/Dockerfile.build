@@ -1,0 +1,14 @@
+FROM node:alpine 
+
+WORKDIR /app
+
+RUN apk update &&\
+    apk add git && \ 
+    git clone https://github.com/jbdotjs/react-tailwind-food-app.git react 
+
+
+WORKDIR /app/react 
+
+RUN npm i 
+
+CMD ["npm", "start"]
